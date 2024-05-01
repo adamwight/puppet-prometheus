@@ -2480,7 +2480,7 @@ Default value: `{}`
 
 Data type: `Stdlib::Absolutepath`
 
-The path to the file with the environmetn variable that is read from the init script/systemd unit
+The path to the file with the environment variable that is read from the init script/systemd unit
 
 Default value: `$prometheus::env_file_path`
 

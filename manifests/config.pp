@@ -251,6 +251,11 @@ class prometheus::config {
     }
   }
 
+  # TODO: This and below should only be created on the server?
+  file { $prometheus::config_dir:
+    ensure => directory,
+  }
+
   # TODO: promtool currently does not support checking the syntax of file_sd_config "includes".
   # Ideally we'd check them the same way the other config files are checked.
   file { "${prometheus::config_dir}/file_sd_config.d":

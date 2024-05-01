@@ -223,7 +223,7 @@ define prometheus::daemon (
     'none': {}
   }
 
-  if $init_style == 'none' and $install_method == 'package' {
+  if $init_style in ['none', 'bsd'] and $install_method == 'package' {
     $env_vars_merged = $env_vars + {
       'ARGS' => $options,
     }
@@ -246,7 +246,8 @@ define prometheus::daemon (
     # the logic here is that the package-managed .service files *need*
     # those files to be present, even if empty, so it's critical that
     # the file not get removed
-    file { "${env_file_path}/${name}":
+    $env_file_sub = "${env_file_path}/${name}"
+    file { $env_file_sub:
       mode    => '0644',
       owner   => 'root',
       group   => '0', # Darwin uses wheel
@@ -257,6 +258,16 @@ define prometheus::daemon (
         }
       ),
       notify  => $notify_service,
+    }
+    if $init_style == 'bsd' {
+      $snake_name = regsubst($name, /-/, '_', 'G')
+      file_line { "rc.conf:env_file:${name}":
+        ensure => present,
+        path   => '/etc/rc.conf',
+        match  => "^${snake_name}_env_file=",
+        line   => "${snake_name}_env_file='${env_file_sub}'",
+        notify => $notify_service,
+      }
     }
   }
 

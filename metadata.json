@@ -82,6 +82,9 @@
     },
     {
       "operatingsystem": "Archlinux"
+    },
+    {
+      "operatingsystem": "FreeBSD"
     }
   ],
   "requirements": [

@@ -96,7 +96,7 @@ class prometheus::nginx_prometheus_exporter (
     default => undef,
   }
 
-  $options = "-nginx.scrape-uri '${scrape_uri}' ${extra_options}"
+  $options = "--nginx.scrape-uri '${scrape_uri}' ${extra_options}"
 
   if $install_method == 'url' {
     # Not a big fan of copypasting but prometheus::daemon takes for granted
@@ -128,6 +128,17 @@ class prometheus::nginx_prometheus_exporter (
     }
   } else {
     $real_install_method = $install_method
+  }
+
+  if $init_style == 'bsd' {
+    $snake_name = regsubst($name, /-/, '_', 'G')
+    file_line { "rc.conf:scrape_uri:${name}":
+      ensure => present,
+      path   => '/etc/rc.conf',
+      match  => "^${snake_name}_scrape_uri=",
+      line   => "${snake_name}_scrape_uri='${scrape_uri}'",
+      notify => $notify_service,
+    }
   }
 
   prometheus::daemon { $service_name:
