@@ -96,7 +96,14 @@ class prometheus::nginx_prometheus_exporter (
     default => undef,
   }
 
-  $options = "--nginx.scrape-uri '${scrape_uri}' ${extra_options}"
+  case $init_style {
+    'bsd': {
+      $options = $extra_options
+    }
+    default: {
+      $options = "--nginx.scrape-uri '${scrape_uri}' ${extra_options}"
+    }
+  }
 
   if $install_method == 'url' {
     # Not a big fan of copypasting but prometheus::daemon takes for granted
@@ -131,7 +138,7 @@ class prometheus::nginx_prometheus_exporter (
   }
 
   if $init_style == 'bsd' {
-    $snake_name = regsubst($name, /-/, '_', 'G')
+    $snake_name = regsubst($package_name, /-/, '_', 'G')
     file_line { "rc.conf:scrape_uri:${name}":
       ensure => present,
       path   => '/etc/rc.conf',

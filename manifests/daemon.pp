@@ -272,7 +272,7 @@ define prometheus::daemon (
         ensure => present,
         path   => '/etc/rc.conf',
         match  => "^${snake_name}_args=",
-        line   => "${snake_name}_args='${options}'",
+        line   => "${snake_name}_args=\"${options}\"",
         notify => $notify_service,
       }
     }
