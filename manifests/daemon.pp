@@ -223,7 +223,7 @@ define prometheus::daemon (
     'none': {}
   }
 
-  if $init_style in ['none', 'bsd'] and $install_method == 'package' {
+  if $init_style == 'none' and $install_method == 'package' {
     $env_vars_merged = $env_vars + {
       'ARGS' => $options,
     }
@@ -266,6 +266,13 @@ define prometheus::daemon (
         path   => '/etc/rc.conf',
         match  => "^${snake_name}_env_file=",
         line   => "${snake_name}_env_file='${env_file_sub}'",
+        notify => $notify_service,
+      }
+      file_line { "rc.conf:args:${name}":
+        ensure => present,
+        path   => '/etc/rc.conf',
+        match  => "^${snake_name}_args=",
+        line   => "${snake_name}_args='${options}'",
         notify => $notify_service,
       }
     }
