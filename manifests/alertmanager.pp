@@ -201,7 +201,7 @@ class prometheus::alertmanager (
     # If version >= 0.10.0 then install amtool - Alertmanager validation tool
     file { "${bin_dir}/amtool":
       ensure => link,
-      target => "/opt/${package_name}-${version}.${os}-${arch}/amtool",
+      target => "/var/tmp/${package_name}-${version}.${os}-${arch}/amtool",
     }
 
     if $manage_config {
@@ -289,5 +289,7 @@ class prometheus::alertmanager (
     manage_service     => $manage_service,
     proxy_server       => $proxy_server,
     proxy_type         => $proxy_type,
+    # hardcoded bsd
+    env_file_path      => "/usr/local/etc/alertmanager/env",
   }
 }

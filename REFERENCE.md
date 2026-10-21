@@ -24,7 +24,7 @@
 * [`prometheus::grok_exporter`](#prometheus--grok_exporter): This module manages prometheus grok_exporter
 * [`prometheus::haproxy_exporter`](#prometheus--haproxy_exporter): This module manages prometheus haproxy_exporter
 * [`prometheus::install`](#prometheus--install): Install prometheus
-* [`prometheus::ipmi_exporter`](#prometheus--ipmi_exporter): This module manages prometheus node ipmi_exporter (https://github.com/soundcloud/ipmi_exporter)
+* [`prometheus::ipmi_exporter`](#prometheus--ipmi_exporter): This module manages prometheus node ipmi_exporter (<https://github.com/soundcloud/ipmi_exporter>)
 * [`prometheus::ipsec_exporter`](#prometheus--ipsec_exporter): This module manages prometheus node ipsec_exporter
 * [`prometheus::jmx_exporter`](#prometheus--jmx_exporter): Installs and configures the Prometheus JMX exporter
 * [`prometheus::memcached_exporter`](#prometheus--memcached_exporter): This module manages prometheus node memcached_exporter
@@ -47,11 +47,11 @@
 * [`prometheus::rabbitmq_exporter`](#prometheus--rabbitmq_exporter): This module manages prometheus rabbitmq_exporter
 * [`prometheus::redis_exporter`](#prometheus--redis_exporter): This module manages prometheus node redis_exporter
 * [`prometheus::run_service`](#prometheus--run_service): This class is meant to be called from prometheus. It ensure the service is running
-* [`prometheus::sachet`](#prometheus--sachet): This module manages prometheus sachet (https://github.com/messagebird/sachet)
+* [`prometheus::sachet`](#prometheus--sachet): This module manages prometheus sachet (<https://github.com/messagebird/sachet>)
 * [`prometheus::server`](#prometheus--server): class to manage the actual prometheus server. This class gets called from the init.pp
 * [`prometheus::snmp_exporter`](#prometheus--snmp_exporter): This module manages prometheus snmp_exporter
-* [`prometheus::ssh_exporter`](#prometheus--ssh_exporter): This module manages prometheus ssh_exporter (https://github.com/treydock/ssh_exporter)
-* [`prometheus::ssl_exporter`](#prometheus--ssl_exporter): This module manages prometheus ssl_exporter (https://github.com/ribbybibby/ssl_exporter)
+* [`prometheus::ssh_exporter`](#prometheus--ssh_exporter): This module manages prometheus ssh_exporter (<https://github.com/treydock/ssh_exporter>)
+* [`prometheus::ssl_exporter`](#prometheus--ssl_exporter): This module manages prometheus ssl_exporter (<https://github.com/ribbybibby/ssl_exporter>)
 * [`prometheus::statsd_exporter`](#prometheus--statsd_exporter): This module manages prometheus statsd_exporter
 * [`prometheus::systemd_exporter`](#prometheus--systemd_exporter): This module manages prometheus node redis_exporter
 * [`prometheus::unbound_exporter`](#prometheus--unbound_exporter): This module manages prometheus unbound exporter.
@@ -561,7 +561,7 @@ Default value: `undef`
 Data type: `Array[Hash[String[1], Any]]`
 
 Array of scrape_configs. Format, e.g.:
-- job_name: some_exporter
+* job_name: some_exporter
   scheme: https
 The jobs defined here will be used to collect resources exported via prometheus::daemon,
 creating the appropriate prometheus scrape configs for each endpoint. All scrape_config
@@ -906,7 +906,7 @@ Default value: `[]`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -922,13 +922,9 @@ Default value: `undef`
 
 Data type: `Stdlib::Absolutepath`
 
-
-
 ##### <a name="-prometheus--manage_config_dir"></a>`manage_config_dir`
 
 Data type: `Boolean`
-
-
 
 Default value: `true`
 
@@ -936,15 +932,11 @@ Default value: `true`
 
 Data type: `Boolean`
 
-
-
 Default value: `true`
 
 ##### <a name="-prometheus--manage_config"></a>`manage_config`
 
 Data type: `Boolean`
-
-
 
 Default value: `true`
 
@@ -952,15 +944,11 @@ Default value: `true`
 
 Data type: `Boolean`
 
-
-
 Default value: `true`
 
 ##### <a name="-prometheus--manage_prometheus_server"></a>`manage_prometheus_server`
 
 Data type: `Boolean`
-
-
 
 Default value: `false`
 
@@ -968,9 +956,10 @@ Default value: `false`
 
 Example:
  prometheus::alertmanager::time_intervals:
- - name: weekend
+
+* name: weekend
    time_intervals:
-     - weekdays: ['saturday','sunday']
+  * weekdays: ['saturday','sunday']
 
 #### Parameters
 
@@ -1103,14 +1092,14 @@ Data type: `Array`
 An array of inhibit rules.
 Example (also default):
 prometheus::alertmanager::inhibit_rules:
-- source_match:
+* source_match:
     severity: 'critical'
     target_match:
       severity: 'warning'
     equal:
-    - 'alertname'
-    - 'cluster'
-    - 'service'
+  * 'alertname'
+  * 'cluster'
+  * 'service'
 
 ##### <a name="-prometheus--alertmanager--init_style"></a>`init_style`
 
@@ -1160,9 +1149,9 @@ Array of mute time intervals
 Not applied if time_intervals is defined
 Example:
 prometheus::alertmanager::mute_time_intervals:
-- name: weekend
+* name: weekend
   time_intervals:
-    - weekdays: ['saturday','sunday']
+  * weekdays: ['saturday','sunday']
 
 ##### <a name="-prometheus--alertmanager--time_intervals"></a>`time_intervals`
 
@@ -1227,9 +1216,9 @@ Data type: `Array`
 An array of receivers.
 Example (also default):
 prometheus::alertmanager::receivers:
-- name: 'Admin'
+* name: 'Admin'
   email_configs:
-    - to: 'root@localhost'
+  * to: 'root@localhost'
 
 ##### <a name="-prometheus--alertmanager--restart_on_change"></a>`restart_on_change`
 
@@ -1315,7 +1304,7 @@ The binary release version
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -1574,7 +1563,7 @@ Default value: `'0.8.0'`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -1606,15 +1595,11 @@ Default value: `{}`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--apache_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -1622,23 +1607,17 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9117`
 
 ##### <a name="-prometheus--apache_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
 
-
-
 Default value: `'apache'`
 
 ##### <a name="-prometheus--apache_exporter--scrape_job_labels"></a>`scrape_job_labels`
 
 Data type: `Optional[Hash]`
-
-
 
 Default value: `undef`
 
@@ -1879,7 +1858,7 @@ The binary release version
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -1895,15 +1874,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--beanstalkd_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -1911,23 +1886,17 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `8080`
 
 ##### <a name="-prometheus--beanstalkd_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
 
-
-
 Default value: `'beanstalkd'`
 
 ##### <a name="-prometheus--beanstalkd_exporter--scrape_job_labels"></a>`scrape_job_labels`
 
 Data type: `Optional[Hash]`
-
-
 
 Default value: `undef`
 
@@ -2216,7 +2185,7 @@ Default value: `undef`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -2233,7 +2202,7 @@ Default value: `undef`
 This module manages prometheus bird exporter
 
 * **See also**
-  * https://github.com/czerwonk/bird_exporter
+  * <https://github.com/czerwonk/bird_exporter>
 
 #### Examples
 
@@ -2488,7 +2457,7 @@ Default value: `$prometheus::env_file_path`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -2504,15 +2473,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--bird_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -2520,15 +2485,11 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9324`
 
 ##### <a name="-prometheus--bird_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
-
-
 
 Default value: `'bird'`
 
@@ -2536,15 +2497,11 @@ Default value: `'bird'`
 
 Data type: `Optional[Hash]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--bird_exporter--bin_name"></a>`bin_name`
 
 Data type: `Optional[String[1]]`
-
-
 
 Default value: `undef`
 
@@ -2560,7 +2517,7 @@ prometheus::blackbox_exporter::modules:
     prober: tcp
     tcp:
       preferred_ip_protocol: ip4
-@ see https://github.com/prometheus/blackbox_exporter/blob/master/CONFIGURATION.md
+@ see <https://github.com/prometheus/blackbox_exporter/blob/master/CONFIGURATION.md>
 
 #### Examples
 
@@ -2853,7 +2810,7 @@ Default value: `$prometheus::config_mode`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -3099,7 +3056,7 @@ Default value: `'0.5.0'`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -3115,15 +3072,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--collectd_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -3131,23 +3084,17 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9103`
 
 ##### <a name="-prometheus--collectd_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
 
-
-
 Default value: `'collectd'`
 
 ##### <a name="-prometheus--collectd_exporter--scrape_job_labels"></a>`scrape_job_labels`
 
 Data type: `Optional[Hash]`
-
-
 
 Default value: `undef`
 
@@ -3219,7 +3166,7 @@ Default value: `$prometheus::bin_dir`
 
 Data type: `String[1]`
 
-HTTP API address of a Consul server or agent. (prefix with https:// to connect over HTTPS) (default "http://localhost:8500")
+HTTP API address of a Consul server or agent. (prefix with https:// to connect over HTTPS) (default "<http://localhost:8500>")
 
 ##### <a name="-prometheus--consul_exporter--consul_health_summary"></a>`consul_health_summary`
 
@@ -3399,7 +3346,7 @@ Path under which to expose metrics. (default "/metrics")
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -3415,15 +3362,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--consul_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -3431,23 +3374,17 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9107`
 
 ##### <a name="-prometheus--consul_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
 
-
-
 Default value: `'consul'`
 
 ##### <a name="-prometheus--consul_exporter--scrape_job_labels"></a>`scrape_job_labels`
 
 Data type: `Optional[Hash]`
-
-
 
 Default value: `undef`
 
@@ -3697,7 +3634,7 @@ Default value: `''`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -3713,15 +3650,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--dellhw_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -3729,15 +3662,11 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9137`
 
 ##### <a name="-prometheus--dellhw_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
-
-
 
 Default value: `'dellhw'`
 
@@ -3745,15 +3674,11 @@ Default value: `'dellhw'`
 
 Data type: `Optional[Hash]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--dellhw_exporter--bin_name"></a>`bin_name`
 
 Data type: `Optional[String[1]]`
-
-
 
 Default value: `undef`
 
@@ -4025,13 +3950,13 @@ Data type: `Boolean`
 
 Since version 1.1.0, the elasticsearch exporter uses kingpin, thus
 this param to define how we call the es.uri and es.timeout in the $options
-https://github.com/justwatchcom/elasticsearch_exporter/blob/v1.1.0/CHANGELOG.md
+<https://github.com/justwatchcom/elasticsearch_exporter/blob/v1.1.0/CHANGELOG.md>
 
 ##### <a name="-prometheus--elasticsearch_exporter--proxy_server"></a>`proxy_server`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -4277,7 +4202,7 @@ Default value: `'0.9.0'`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -4293,15 +4218,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--graphite_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -4309,23 +4230,17 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9108`
 
 ##### <a name="-prometheus--graphite_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
 
-
-
 Default value: `'graphite'`
 
 ##### <a name="-prometheus--graphite_exporter--scrape_job_labels"></a>`scrape_job_labels`
 
 Data type: `Optional[Hash]`
-
-
 
 Default value: `undef`
 
@@ -4391,7 +4306,7 @@ Default value: `$prometheus::bin_dir`
 
 Data type: `Hash`
 
-Hash of configuration, see https://github.com/fstab/grok_exporter/blob/master/CONFIG.md
+Hash of configuration, see <https://github.com/fstab/grok_exporter/blob/master/CONFIG.md>
 for available options
 
 ##### <a name="-prometheus--grok_exporter--config_file"></a>`config_file`
@@ -4582,7 +4497,7 @@ Default value: `'1.0.0.RC4'`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -4598,15 +4513,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--grok_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -4614,23 +4525,17 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9144`
 
 ##### <a name="-prometheus--grok_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
 
-
-
 Default value: `'grok'`
 
 ##### <a name="-prometheus--grok_exporter--scrape_job_labels"></a>`scrape_job_labels`
 
 Data type: `Optional[Hash]`
-
-
 
 Default value: `undef`
 
@@ -4852,7 +4757,7 @@ The binary release version
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -4884,15 +4789,11 @@ Default value: `{}`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--haproxy_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -4900,23 +4801,17 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9101`
 
 ##### <a name="-prometheus--haproxy_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
 
-
-
 Default value: `'haproxy'`
 
 ##### <a name="-prometheus--haproxy_exporter--scrape_job_labels"></a>`scrape_job_labels`
 
 Data type: `Optional[Hash]`
-
-
 
 Default value: `undef`
 
@@ -4931,7 +4826,7 @@ The package method needs specific yum or apt repo settings which are not made ye
 
 ### <a name="prometheus--ipmi_exporter"></a>`prometheus::ipmi_exporter`
 
-This module manages prometheus node ipmi_exporter (https://github.com/soundcloud/ipmi_exporter)
+This module manages prometheus node ipmi_exporter (<https://github.com/soundcloud/ipmi_exporter>)
 
 #### Parameters
 
@@ -5186,7 +5081,7 @@ Default value: `'1.4.0'`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -5202,15 +5097,11 @@ Default value: `undef`
 
 Data type: `Optional[Stdlib::Host]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--ipmi_exporter--export_scrape_job"></a>`export_scrape_job`
 
 Data type: `Boolean`
-
-
 
 Default value: `false`
 
@@ -5218,15 +5109,11 @@ Default value: `false`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9290`
 
 ##### <a name="-prometheus--ipmi_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
-
-
 
 Default value: `'ipmi'`
 
@@ -5234,15 +5121,11 @@ Default value: `'ipmi'`
 
 Data type: `Optional[Hash]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--ipmi_exporter--bin_name"></a>`bin_name`
 
 Data type: `Optional[String[1]]`
-
-
 
 Default value: `undef`
 
@@ -5250,15 +5133,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `true`
 
 ##### <a name="-prometheus--ipmi_exporter--script_dir"></a>`script_dir`
 
 Data type: `Stdlib::Absolutepath`
-
-
 
 Default value: `'/usr/local/bin'`
 
@@ -5489,7 +5368,7 @@ Default value: `'0.3.2'`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -5505,15 +5384,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--ipsec_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -5521,23 +5396,17 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9536`
 
 ##### <a name="-prometheus--ipsec_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
 
-
-
 Default value: `'ipsec'`
 
 ##### <a name="-prometheus--ipsec_exporter--scrape_job_labels"></a>`scrape_job_labels`
 
 Data type: `Optional[Hash]`
-
-
 
 Default value: `undef`
 
@@ -5546,7 +5415,7 @@ Default value: `undef`
 Installs and configures the Prometheus JMX exporter
 
 * **See also**
-  * https://github.com/prometheus/jmx_exporter
+  * <https://github.com/prometheus/jmx_exporter>
 
 #### Parameters
 
@@ -5730,7 +5599,7 @@ Default value: `undef`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -5978,7 +5847,7 @@ Default value: `'0.6.0'`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -5994,15 +5863,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--memcached_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -6010,15 +5875,11 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9150`
 
 ##### <a name="-prometheus--memcached_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
-
-
 
 Default value: `'memcached'`
 
@@ -6026,15 +5887,11 @@ Default value: `'memcached'`
 
 Data type: `Optional[Hash]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--memcached_exporter--bin_name"></a>`bin_name`
 
 Data type: `Optional[String[1]]`
-
-
 
 Default value: `undef`
 
@@ -6261,7 +6118,7 @@ The binary release version
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -6277,15 +6134,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--mesos_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -6293,23 +6146,17 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9105`
 
 ##### <a name="-prometheus--mesos_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
 
-
-
 Default value: `'mesos'`
 
 ##### <a name="-prometheus--mesos_exporter--scrape_job_labels"></a>`scrape_job_labels`
 
 Data type: `Optional[Hash]`
-
-
 
 Default value: `undef`
 
@@ -6561,7 +6408,7 @@ Data type: `Boolean`
 
 Since version 0.7.0, the mongodb exporter uses kingpin, thus
 this param to define how we call the mongodb.uri in the $options
-https://github.com/percona/mongodb_exporter/blob/v0.7.0/CHANGELOG.md
+<https://github.com/percona/mongodb_exporter/blob/v0.7.0/CHANGELOG.md>
 
 Default value: `true`
 
@@ -6569,7 +6416,7 @@ Default value: `true`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -6585,15 +6432,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--mongodb_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -6601,23 +6444,17 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9216`
 
 ##### <a name="-prometheus--mongodb_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
 
-
-
 Default value: `'mongodb'`
 
 ##### <a name="-prometheus--mongodb_exporter--scrape_job_labels"></a>`scrape_job_labels`
 
 Data type: `Optional[Hash]`
-
-
 
 Default value: `undef`
 
@@ -6626,7 +6463,7 @@ Default value: `undef`
 manages prometheus mysqld_exporter
 
 * **See also**
-  * https://github.com/prometheus/mysqld_exporter
+  * <https://github.com/prometheus/mysqld_exporter>
 
 #### Parameters
 
@@ -6898,7 +6735,7 @@ The binary release version
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -6930,15 +6767,11 @@ Default value: `{}`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--mysqld_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -6946,23 +6779,17 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9104`
 
 ##### <a name="-prometheus--mysqld_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
 
-
-
 Default value: `'mysql'`
 
 ##### <a name="-prometheus--mysqld_exporter--scrape_job_labels"></a>`scrape_job_labels`
 
 Data type: `Optional[Hash]`
-
-
 
 Default value: `undef`
 
@@ -7214,7 +7041,7 @@ Default value: `'0.9.0'`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -7230,15 +7057,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--nginx_prometheus_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -7246,15 +7069,11 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9113`
 
 ##### <a name="-prometheus--nginx_prometheus_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
-
-
 
 Default value: `'nginx'`
 
@@ -7262,15 +7081,11 @@ Default value: `'nginx'`
 
 Data type: `Optional[Hash]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--nginx_prometheus_exporter--bin_name"></a>`bin_name`
 
 Data type: `String[1]`
-
-
 
 Default value: `'nginx-prometheus-exporter'`
 
@@ -7278,15 +7093,11 @@ Default value: `'nginx-prometheus-exporter'`
 
 Data type: `Hash[String[1], Scalar]`
 
-
-
 Default value: `{}`
 
 ##### <a name="-prometheus--nginx_prometheus_exporter--env_file_path"></a>`env_file_path`
 
 Data type: `Stdlib::Absolutepath`
-
-
 
 Default value: `$prometheus::env_file_path`
 
@@ -7506,7 +7317,7 @@ The binary release version
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -7522,15 +7333,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--nginx_vts_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -7538,23 +7345,17 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9913`
 
 ##### <a name="-prometheus--nginx_vts_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
 
-
-
 Default value: `'nginx_vts'`
 
 ##### <a name="-prometheus--nginx_vts_exporter--scrape_job_labels"></a>`scrape_job_labels`
 
 Data type: `Optional[Hash]`
-
-
 
 Default value: `undef`
 
@@ -7635,7 +7436,7 @@ Default value: `undef`
 Data type: `Array[String]`
 
 Collectors to enable, addtionally to the defaults
-https://github.com/prometheus/node_exporter#enabled-by-default
+<https://github.com/prometheus/node_exporter#enabled-by-default>
 
 Default value: `[]`
 
@@ -7644,7 +7445,7 @@ Default value: `[]`
 Data type: `Array[String]`
 
 disable collectors which are enabled by default
-https://github.com/prometheus/node_exporter#enabled-by-default
+<https://github.com/prometheus/node_exporter#enabled-by-default>
 
 Default value: `[]`
 
@@ -7820,7 +7621,7 @@ Default value: `$prometheus::env_file_path`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -7852,15 +7653,11 @@ Default value: `{}`
 
 Data type: `Optional[Stdlib::Host]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--node_exporter--export_scrape_job"></a>`export_scrape_job`
 
 Data type: `Boolean`
-
-
 
 Default value: `false`
 
@@ -7868,15 +7665,11 @@ Default value: `false`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9100`
 
 ##### <a name="-prometheus--node_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
-
-
 
 Default value: `'node'`
 
@@ -7884,15 +7677,11 @@ Default value: `'node'`
 
 Data type: `Optional[Hash]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--node_exporter--bin_name"></a>`bin_name`
 
 Data type: `Optional[String[1]]`
-
-
 
 Default value: `undef`
 
@@ -8124,7 +7913,7 @@ Default value: `undef`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -8140,15 +7929,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--openldap_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -8156,23 +7941,17 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9330`
 
 ##### <a name="-prometheus--openldap_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
 
-
-
 Default value: `'openldap'`
 
 ##### <a name="-prometheus--openldap_exporter--scrape_job_labels"></a>`scrape_job_labels`
 
 Data type: `Optional[Hash]`
-
-
 
 Default value: `undef`
 
@@ -8413,7 +8192,7 @@ Default value: `'v0.3.0.3'`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -8429,15 +8208,11 @@ Default value: `undef`
 
 Data type: `Optional[Stdlib::Host]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--openvpn_exporter--export_scrape_job"></a>`export_scrape_job`
 
 Data type: `Boolean`
-
-
 
 Default value: `false`
 
@@ -8445,15 +8220,11 @@ Default value: `false`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9176`
 
 ##### <a name="-prometheus--openvpn_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
-
-
 
 Default value: `'node'`
 
@@ -8461,15 +8232,11 @@ Default value: `'node'`
 
 Data type: `Optional[Hash]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--openvpn_exporter--bin_name"></a>`bin_name`
 
 Data type: `Optional[String[1]]`
-
-
 
 Default value: `undef`
 
@@ -8721,7 +8488,7 @@ Default value: `'2.0.4'`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -8737,15 +8504,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--php_fpm_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -8753,15 +8516,11 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9253`
 
 ##### <a name="-prometheus--php_fpm_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
-
-
 
 Default value: `'php-fpm'`
 
@@ -8769,15 +8528,11 @@ Default value: `'php-fpm'`
 
 Data type: `Optional[Hash]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--php_fpm_exporter--bin_name"></a>`bin_name`
 
 Data type: `String[1]`
-
-
 
 Default value: `'php-fpm_exporter'`
 
@@ -8785,15 +8540,11 @@ Default value: `'php-fpm_exporter'`
 
 Data type: `Hash[String[1], Scalar]`
 
-
-
 Default value: `{}`
 
 ##### <a name="-prometheus--php_fpm_exporter--env_file_path"></a>`env_file_path`
 
 Data type: `Stdlib::Absolutepath`
-
-
 
 Default value: `$prometheus::env_file_path`
 
@@ -8802,7 +8553,7 @@ Default value: `$prometheus::env_file_path`
 manages prometheus postfix_exporter
 
 * **See also**
-  * https://github.com/kumina/postfix_exporter
+  * <https://github.com/kumina/postfix_exporter>
 
 #### Examples
 
@@ -9033,7 +8784,7 @@ Default value: `undef`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -9048,8 +8799,6 @@ Default value: `undef`
 ##### <a name="-prometheus--postfix_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -9321,7 +9070,7 @@ Default value: `'host=/var/run/postgresql/ sslmode=disable'`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -9353,15 +9102,11 @@ Default value: `{}`
 
 Data type: `String`
 
-
-
 Default value: `''`
 
 ##### <a name="-prometheus--postgres_exporter--export_scrape_job"></a>`export_scrape_job`
 
 Data type: `Boolean`
-
-
 
 Default value: `false`
 
@@ -9369,15 +9114,11 @@ Default value: `false`
 
 Data type: `Optional[Stdlib::Host]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--postgres_exporter--scrape_port"></a>`scrape_port`
 
 Data type: `Stdlib::Port`
-
-
 
 Default value: `9187`
 
@@ -9385,15 +9126,11 @@ Default value: `9187`
 
 Data type: `String[1]`
 
-
-
 Default value: `'postgres'`
 
 ##### <a name="-prometheus--postgres_exporter--scrape_job_labels"></a>`scrape_job_labels`
 
 Data type: `Optional[Hash]`
-
-
 
 Default value: `undef`
 
@@ -9653,7 +9390,7 @@ Default value: `[]`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -9669,13 +9406,9 @@ Default value: `undef`
 
 Data type: `Stdlib::Absolutepath`
 
-
-
 ##### <a name="-prometheus--process_exporter--config_mode"></a>`config_mode`
 
 Data type: `String[1]`
-
-
 
 Default value: `$prometheus::config_mode`
 
@@ -9683,15 +9416,11 @@ Default value: `$prometheus::config_mode`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--process_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -9699,23 +9428,17 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9256`
 
 ##### <a name="-prometheus--process_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
 
-
-
 Default value: `'process'`
 
 ##### <a name="-prometheus--process_exporter--scrape_job_labels"></a>`scrape_job_labels`
 
 Data type: `Optional[Hash]`
-
-
 
 Default value: `undef`
 
@@ -9956,7 +9679,7 @@ Default value: `'http://127.0.0.1:8080/pdb/query'`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -9972,15 +9695,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--puppetdb_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -9988,15 +9707,11 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9635`
 
 ##### <a name="-prometheus--puppetdb_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
-
-
 
 Default value: `'puppetdb'`
 
@@ -10004,15 +9719,11 @@ Default value: `'puppetdb'`
 
 Data type: `Optional[Hash]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--puppetdb_exporter--bin_name"></a>`bin_name`
 
 Data type: `Optional[String[1]]`
-
-
 
 Default value: `undef`
 
@@ -10213,7 +9924,7 @@ The binary release version
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -10450,7 +10161,7 @@ Default value: `{}`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -10465,8 +10176,6 @@ Default value: `undef`
 ##### <a name="-prometheus--pushprox_client--proxy_url"></a>`proxy_url`
 
 Data type: `String[1]`
-
-
 
 ### <a name="prometheus--pushprox_proxy"></a>`prometheus::pushprox_proxy`
 
@@ -10683,7 +10392,7 @@ The binary release version
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -10965,7 +10674,7 @@ Default value: `{}`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -10981,15 +10690,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--rabbitmq_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -10997,23 +10702,17 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9090`
 
 ##### <a name="-prometheus--rabbitmq_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
 
-
-
 Default value: `'rabbitmq'`
 
 ##### <a name="-prometheus--rabbitmq_exporter--scrape_job_labels"></a>`scrape_job_labels`
 
 Data type: `Optional[Hash]`
-
-
 
 Default value: `undef`
 
@@ -11120,7 +10819,7 @@ Data type: `Optional[String[1]]`
 
 Extra options added to the startup command
 For a full list of the exporter's supported extra options
-please refer to https://github.com/oliver006/redis_exporter
+please refer to <https://github.com/oliver006/redis_exporter>
 
 Default value: `undef`
 
@@ -11264,7 +10963,7 @@ Default value: `'1.9.0'`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -11280,15 +10979,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--redis_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -11296,23 +10991,17 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9121`
 
 ##### <a name="-prometheus--redis_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
 
-
-
 Default value: `'redis'`
 
 ##### <a name="-prometheus--redis_exporter--scrape_job_labels"></a>`scrape_job_labels`
 
 Data type: `Optional[Hash]`
-
-
 
 Default value: `undef`
 
@@ -11322,7 +11011,7 @@ This class is meant to be called from prometheus. It ensure the service is runni
 
 ### <a name="prometheus--sachet"></a>`prometheus::sachet`
 
-This module manages prometheus sachet (https://github.com/messagebird/sachet)
+This module manages prometheus sachet (<https://github.com/messagebird/sachet>)
 
 #### Parameters
 
@@ -11505,7 +11194,7 @@ Data type: `Array`
 An array of templates.
 Example:
 prometheus::sachet::templates:
-- name: 'notifications'
+* name: 'notifications'
   template: |
     {{ define "telegram_title" }}[{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ .CommonLabels.alertname }} @ {{ .CommonLabels.identifier }} {{ end }}
 
@@ -11531,7 +11220,7 @@ Data type: `Array`
 An array of receivers.
 Example:
 prometheus::sachet::receivers:
-- name: 'Telegram'
+* name: 'Telegram'
   provider: telegram
   text: '{{ template "telegram_message" . }}'
 
@@ -11542,7 +11231,7 @@ Default value: `[]`
 Data type: `Hash`
 
 An hash of providers.
-See https://github.com/messagebird/sachet/blob/master/examples/config.yaml for more examples
+See <https://github.com/messagebird/sachet/blob/master/examples/config.yaml> for more examples
 Example:
 prometheus::sachet::providers:
   telegram:
@@ -11602,7 +11291,7 @@ Default value: `'0.2.6'`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -11618,15 +11307,11 @@ Default value: `undef`
 
 Data type: `Stdlib::Absolutepath`
 
-
-
 Default value: `'/etc/sachet'`
 
 ##### <a name="-prometheus--sachet--config_file"></a>`config_file`
 
 Data type: `Stdlib::Absolutepath`
-
-
 
 Default value: `'/etc/sachet/sachet.yaml'`
 
@@ -11634,23 +11319,17 @@ Default value: `'/etc/sachet/sachet.yaml'`
 
 Data type: `String[1]`
 
-
-
 Default value: `$prometheus::config_mode`
 
 ##### <a name="-prometheus--sachet--listen_port"></a>`listen_port`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9876`
 
 ##### <a name="-prometheus--sachet--bin_name"></a>`bin_name`
 
 Data type: `Optional[String[1]]`
-
-
 
 Default value: `undef`
 
@@ -11723,15 +11402,11 @@ The following parameters are available in the `prometheus::server` class:
 
 Data type: `String`
 
-
-
 Default value: `$prometheus::configname`
 
 ##### <a name="-prometheus--server--user"></a>`user`
 
 Data type: `String`
-
-
 
 Default value: `$prometheus::user`
 
@@ -11739,15 +11414,11 @@ Default value: `$prometheus::user`
 
 Data type: `String`
 
-
-
 Default value: `$prometheus::group`
 
 ##### <a name="-prometheus--server--extra_groups"></a>`extra_groups`
 
 Data type: `Array`
-
-
 
 Default value: `$prometheus::extra_groups`
 
@@ -11755,15 +11426,11 @@ Default value: `$prometheus::extra_groups`
 
 Data type: `Stdlib::Absolutepath`
 
-
-
 Default value: `$prometheus::bin_dir`
 
 ##### <a name="-prometheus--server--shared_dir"></a>`shared_dir`
 
 Data type: `Stdlib::Absolutepath`
-
-
 
 Default value: `$prometheus::shared_dir`
 
@@ -11771,15 +11438,11 @@ Default value: `$prometheus::shared_dir`
 
 Data type: `String`
 
-
-
 Default value: `$prometheus::version`
 
 ##### <a name="-prometheus--server--install_method"></a>`install_method`
 
 Data type: `String`
-
-
 
 Default value: `$prometheus::install_method`
 
@@ -11787,15 +11450,11 @@ Default value: `$prometheus::install_method`
 
 Data type: `Prometheus::Uri`
 
-
-
 Default value: `$prometheus::download_url_base`
 
 ##### <a name="-prometheus--server--download_extension"></a>`download_extension`
 
 Data type: `String`
-
-
 
 Default value: `$prometheus::download_extension`
 
@@ -11803,15 +11462,11 @@ Default value: `$prometheus::download_extension`
 
 Data type: `String`
 
-
-
 Default value: `$prometheus::package_name`
 
 ##### <a name="-prometheus--server--package_ensure"></a>`package_ensure`
 
 Data type: `String`
-
-
 
 Default value: `$prometheus::package_ensure`
 
@@ -11819,15 +11474,11 @@ Default value: `$prometheus::package_ensure`
 
 Data type: `String`
 
-
-
 Default value: `$prometheus::config_dir`
 
 ##### <a name="-prometheus--server--manage_config_dir"></a>`manage_config_dir`
 
 Data type: `Boolean`
-
-
 
 Default value: `$prometheus::manage_config_dir`
 
@@ -11835,15 +11486,11 @@ Default value: `$prometheus::manage_config_dir`
 
 Data type: `Variant[Stdlib::Absolutepath, Boolean[false]]`
 
-
-
 Default value: `$prometheus::localstorage`
 
 ##### <a name="-prometheus--server--manage_localstorage"></a>`manage_localstorage`
 
 Data type: `Boolean`
-
-
 
 Default value: `$prometheus::manage_localstorage`
 
@@ -11851,15 +11498,11 @@ Default value: `$prometheus::manage_localstorage`
 
 Data type: `String`
 
-
-
 Default value: `$prometheus::config_template`
 
 ##### <a name="-prometheus--server--config_mode"></a>`config_mode`
 
 Data type: `String`
-
-
 
 Default value: `$prometheus::config_mode`
 
@@ -11867,15 +11510,11 @@ Default value: `$prometheus::config_mode`
 
 Data type: `Hash`
 
-
-
 Default value: `$prometheus::global_config`
 
 ##### <a name="-prometheus--server--rule_files"></a>`rule_files`
 
 Data type: `Array`
-
-
 
 Default value: `$prometheus::rule_files`
 
@@ -11883,15 +11522,11 @@ Default value: `$prometheus::rule_files`
 
 Data type: `Array`
 
-
-
 Default value: `$prometheus::scrape_configs`
 
 ##### <a name="-prometheus--server--include_default_scrape_configs"></a>`include_default_scrape_configs`
 
 Data type: `Boolean`
-
-
 
 Default value: `$prometheus::include_default_scrape_configs`
 
@@ -11899,15 +11534,11 @@ Default value: `$prometheus::include_default_scrape_configs`
 
 Data type: `Array`
 
-
-
 Default value: `$prometheus::remote_read_configs`
 
 ##### <a name="-prometheus--server--remote_write_configs"></a>`remote_write_configs`
 
 Data type: `Array`
-
-
 
 Default value: `$prometheus::remote_write_configs`
 
@@ -11915,15 +11546,11 @@ Default value: `$prometheus::remote_write_configs`
 
 Data type: `Boolean`
 
-
-
 Default value: `$prometheus::enable_tracing`
 
 ##### <a name="-prometheus--server--tracing_config"></a>`tracing_config`
 
 Data type: `Hash`
-
-
 
 Default value: `$prometheus::tracing_config`
 
@@ -11931,15 +11558,11 @@ Default value: `$prometheus::tracing_config`
 
 Data type: `Variant[Array,Hash]`
 
-
-
 Default value: `$prometheus::alerts`
 
 ##### <a name="-prometheus--server--alert_relabel_config"></a>`alert_relabel_config`
 
 Data type: `Array`
-
-
 
 Default value: `$prometheus::alert_relabel_config`
 
@@ -11947,15 +11570,11 @@ Default value: `$prometheus::alert_relabel_config`
 
 Data type: `Array`
 
-
-
 Default value: `$prometheus::alertmanagers_config`
 
 ##### <a name="-prometheus--server--storage_retention"></a>`storage_retention`
 
 Data type: `Variant[String, Boolean[false]]`
-
-
 
 Default value: `$prometheus::storage_retention`
 
@@ -11963,15 +11582,11 @@ Default value: `$prometheus::storage_retention`
 
 Data type: `Stdlib::Absolutepath`
 
-
-
 Default value: `$prometheus::env_file_path`
 
 ##### <a name="-prometheus--server--extra_alerts"></a>`extra_alerts`
 
 Data type: `Hash`
-
-
 
 Default value: `$prometheus::extra_alerts`
 
@@ -11979,15 +11594,11 @@ Default value: `$prometheus::extra_alerts`
 
 Data type: `Boolean`
 
-
-
 Default value: `$prometheus::service_enable`
 
 ##### <a name="-prometheus--server--service_ensure"></a>`service_ensure`
 
 Data type: `Stdlib::Ensure::Service`
-
-
 
 Default value: `$prometheus::service_ensure`
 
@@ -11995,15 +11606,11 @@ Default value: `$prometheus::service_ensure`
 
 Data type: `String[1]`
 
-
-
 Default value: `$prometheus::service_name`
 
 ##### <a name="-prometheus--server--manage_service"></a>`manage_service`
 
 Data type: `Boolean`
-
-
 
 Default value: `$prometheus::manage_service`
 
@@ -12011,15 +11618,11 @@ Default value: `$prometheus::manage_service`
 
 Data type: `Boolean`
 
-
-
 Default value: `$prometheus::restart_on_change`
 
 ##### <a name="-prometheus--server--init_style"></a>`init_style`
 
 Data type: `Prometheus::Initstyle`
-
-
 
 Default value: `$prometheus::init_style`
 
@@ -12027,15 +11630,11 @@ Default value: `$prometheus::init_style`
 
 Data type: `Optional[String[1]]`
 
-
-
 Default value: `$prometheus::extra_options`
 
 ##### <a name="-prometheus--server--config_hash"></a>`config_hash`
 
 Data type: `Hash`
-
-
 
 Default value: `$prometheus::config_hash`
 
@@ -12043,15 +11642,11 @@ Default value: `$prometheus::config_hash`
 
 Data type: `Hash`
 
-
-
 Default value: `$prometheus::config_defaults`
 
 ##### <a name="-prometheus--server--os"></a>`os`
 
 Data type: `String[1]`
-
-
 
 Default value: `$prometheus::os`
 
@@ -12059,15 +11654,11 @@ Default value: `$prometheus::os`
 
 Data type: `Optional[String]`
 
-
-
 Default value: `$prometheus::download_url`
 
 ##### <a name="-prometheus--server--arch"></a>`arch`
 
 Data type: `String[1]`
-
-
 
 Default value: `$prometheus::real_arch`
 
@@ -12075,15 +11666,11 @@ Default value: `$prometheus::real_arch`
 
 Data type: `Boolean`
 
-
-
 Default value: `$prometheus::manage_group`
 
 ##### <a name="-prometheus--server--purge_config_dir"></a>`purge_config_dir`
 
 Data type: `Boolean`
-
-
 
 Default value: `$prometheus::purge_config_dir`
 
@@ -12091,15 +11678,11 @@ Default value: `$prometheus::purge_config_dir`
 
 Data type: `Boolean`
 
-
-
 Default value: `$prometheus::manage_user`
 
 ##### <a name="-prometheus--server--manage_config"></a>`manage_config`
 
 Data type: `Boolean`
-
-
 
 Default value: `$prometheus::manage_config`
 
@@ -12107,15 +11690,11 @@ Default value: `$prometheus::manage_config`
 
 Data type: `Optional[Variant[Stdlib::HTTPurl, Stdlib::Unixpath, String[1]]]`
 
-
-
 Default value: `$prometheus::external_url`
 
 ##### <a name="-prometheus--server--collect_scrape_jobs"></a>`collect_scrape_jobs`
 
 Data type: `Optional[Array[Hash[String[1], Any]]]`
-
-
 
 Default value: `$prometheus::collect_scrape_jobs`
 
@@ -12123,15 +11702,11 @@ Default value: `$prometheus::collect_scrape_jobs`
 
 Data type: `Optional[String[1]]`
 
-
-
 Default value: `$prometheus::collect_tag`
 
 ##### <a name="-prometheus--server--max_open_files"></a>`max_open_files`
 
 Data type: `Optional[Integer]`
-
-
 
 Default value: `$prometheus::max_open_files`
 
@@ -12139,15 +11714,11 @@ Default value: `$prometheus::max_open_files`
 
 Data type: `Stdlib::Absolutepath`
 
-
-
 Default value: `$prometheus::usershell`
 
 ##### <a name="-prometheus--server--proxy_server"></a>`proxy_server`
 
 Data type: `Optional[String[1]]`
-
-
 
 Default value: `$prometheus::proxy_server`
 
@@ -12155,15 +11726,11 @@ Default value: `$prometheus::proxy_server`
 
 Data type: `Optional[Enum['none', 'http', 'https', 'ftp']]`
 
-
-
 Default value: `$prometheus::proxy_type`
 
 ##### <a name="-prometheus--server--manage_init_file"></a>`manage_init_file`
 
 Data type: `Boolean`
-
-
 
 Default value: `$prometheus::manage_init_file`
 
@@ -12399,7 +11966,7 @@ The binary release version
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -12415,15 +11982,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--snmp_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -12431,15 +11994,11 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9116`
 
 ##### <a name="-prometheus--snmp_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
-
-
 
 Default value: `'snmp'`
 
@@ -12447,13 +12006,11 @@ Default value: `'snmp'`
 
 Data type: `Optional[Hash]`
 
-
-
 Default value: `undef`
 
 ### <a name="prometheus--ssh_exporter"></a>`prometheus::ssh_exporter`
 
-This module manages prometheus ssh_exporter (https://github.com/treydock/ssh_exporter)
+This module manages prometheus ssh_exporter (<https://github.com/treydock/ssh_exporter>)
 
 #### Parameters
 
@@ -12706,7 +12263,7 @@ Default value: `'1.2.0'`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -12722,15 +12279,11 @@ Default value: `undef`
 
 Data type: `Optional[Stdlib::Host]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--ssh_exporter--export_scrape_job"></a>`export_scrape_job`
 
 Data type: `Boolean`
-
-
 
 Default value: `false`
 
@@ -12738,15 +12291,11 @@ Default value: `false`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9312`
 
 ##### <a name="-prometheus--ssh_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
-
-
 
 Default value: `'ssh'`
 
@@ -12754,21 +12303,17 @@ Default value: `'ssh'`
 
 Data type: `Optional[Hash]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--ssh_exporter--bin_name"></a>`bin_name`
 
 Data type: `Optional[String[1]]`
 
-
-
 Default value: `undef`
 
 ### <a name="prometheus--ssl_exporter"></a>`prometheus::ssl_exporter`
 
-This module manages prometheus ssl_exporter (https://github.com/ribbybibby/ssl_exporter)
+This module manages prometheus ssl_exporter (<https://github.com/ribbybibby/ssl_exporter>)
 
 #### Parameters
 
@@ -13021,7 +12566,7 @@ Default value: `'2.2.1'`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -13037,15 +12582,11 @@ Default value: `undef`
 
 Data type: `Optional[Stdlib::Host]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--ssl_exporter--export_scrape_job"></a>`export_scrape_job`
 
 Data type: `Boolean`
-
-
 
 Default value: `false`
 
@@ -13053,15 +12594,11 @@ Default value: `false`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9219`
 
 ##### <a name="-prometheus--ssl_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
-
-
 
 Default value: `'ssl'`
 
@@ -13069,15 +12606,11 @@ Default value: `'ssl'`
 
 Data type: `Optional[Hash]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--ssl_exporter--bin_name"></a>`bin_name`
 
 Data type: `Optional[String[1]]`
-
-
 
 Default value: `undef`
 
@@ -13290,7 +12823,8 @@ Name of the statsd exporter service (default 'statsd_exporter')
 Data type: `Array[Hash]`
 
 The hiera array for mappings:
-  - map: 'test.dispatcher.*.*.*'
+
+* map: 'test.dispatcher.*.*.*'
     name: 'dispatcher_events_total'
     labels:
       processor: '$2'
@@ -13312,7 +12846,7 @@ The binary release version
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -13328,13 +12862,9 @@ Default value: `undef`
 
 Data type: `Stdlib::Absolutepath`
 
-
-
 ##### <a name="-prometheus--statsd_exporter--export_scrape_job"></a>`export_scrape_job`
 
 Data type: `Boolean`
-
-
 
 Default value: `false`
 
@@ -13342,15 +12872,11 @@ Default value: `false`
 
 Data type: `Optional[Stdlib::Host]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--statsd_exporter--scrape_port"></a>`scrape_port`
 
 Data type: `Stdlib::Port`
-
-
 
 Default value: `9102`
 
@@ -13358,15 +12884,11 @@ Default value: `9102`
 
 Data type: `String[1]`
 
-
-
 Default value: `'statsd'`
 
 ##### <a name="-prometheus--statsd_exporter--scrape_job_labels"></a>`scrape_job_labels`
 
 Data type: `Optional[Hash]`
-
-
 
 Default value: `undef`
 
@@ -13461,7 +12983,7 @@ Data type: `String`
 
 Extra options added to the startup command
 For a full list of the exporter's supported extra options
-please refer to https://github.com/oliver006/redis_exporter
+please refer to <https://github.com/oliver006/redis_exporter>
 
 Default value: `''`
 
@@ -13597,15 +13119,11 @@ Default value: `'0.5.0'`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--systemd_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -13613,15 +13131,11 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9558`
 
 ##### <a name="-prometheus--systemd_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
-
-
 
 Default value: `'systemd'`
 
@@ -13629,18 +13143,16 @@ Default value: `'systemd'`
 
 Data type: `Optional[Hash]`
 
-
-
 Default value: `undef`
 
 ### <a name="prometheus--unbound_exporter"></a>`prometheus::unbound_exporter`
 
 This module manages prometheus unbound exporter.
 
-* **Note** The exporter needs to be compiled by hand! (https://github.com/kumina/unbound_exporter/issues/21)
+* **Note** The exporter needs to be compiled by hand! (<https://github.com/kumina/unbound_exporter/issues/21>)
 
 * **See also**
-  * https://github.com/kumina/unbound_exporter
+  * <https://github.com/kumina/unbound_exporter>
 
 #### Parameters
 
@@ -13866,7 +13378,7 @@ Default value: `'0.3'`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -13882,15 +13394,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--unbound_exporter--scrape_port"></a>`scrape_port`
 
 Data type: `Stdlib::Port`
-
-
 
 Default value: `9167`
 
@@ -13898,15 +13406,11 @@ Default value: `9167`
 
 Data type: `String[1]`
 
-
-
 Default value: `'unbound'`
 
 ##### <a name="-prometheus--unbound_exporter--scrape_job_labels"></a>`scrape_job_labels`
 
 Data type: `Optional[Hash]`
-
-
 
 Default value: `undef`
 
@@ -13914,15 +13418,11 @@ Default value: `undef`
 
 Data type: `Optional[String[1]]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--unbound_exporter--env_vars"></a>`env_vars`
 
 Data type: `Hash`
-
-
 
 Default value: `{ 'GODEBUG' => 'x509ignoreCN=0' }`
 
@@ -14153,7 +13653,7 @@ Default value: `'1.5.2'`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -14169,15 +13669,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--varnish_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -14185,23 +13681,17 @@ Default value: `undef`
 
 Data type: `Stdlib::Port`
 
-
-
 Default value: `9131`
 
 ##### <a name="-prometheus--varnish_exporter--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
 
-
-
 Default value: `'varnish'`
 
 ##### <a name="-prometheus--varnish_exporter--scrape_job_labels"></a>`scrape_job_labels`
 
 Data type: `Optional[Hash]`
-
-
 
 Default value: `undef`
 
@@ -14440,7 +13930,7 @@ Default value: `$prometheus::env_file_path`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -14456,15 +13946,11 @@ Default value: `undef`
 
 Data type: `Prometheus::Uri`
 
-
-
 Default value: `'https://github.com/MindFlavor/prometheus_wireguard_exporter/releases/tag/3.6.6'`
 
 ##### <a name="-prometheus--wireguard_exporter--scrape_host"></a>`scrape_host`
 
 Data type: `Optional[Stdlib::Host]`
-
-
 
 Default value: `undef`
 
@@ -14472,15 +13958,11 @@ Default value: `undef`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--wireguard_exporter--scrape_port"></a>`scrape_port`
 
 Data type: `Stdlib::Port`
-
-
 
 Default value: `9586`
 
@@ -14488,15 +13970,11 @@ Default value: `9586`
 
 Data type: `String[1]`
 
-
-
 Default value: `'wireguard'`
 
 ##### <a name="-prometheus--wireguard_exporter--scrape_job_labels"></a>`scrape_job_labels`
 
 Data type: `Optional[Hash]`
-
-
 
 Default value: `undef`
 
@@ -14504,15 +13982,11 @@ Default value: `undef`
 
 Data type: `Optional[String[1]]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--wireguard_exporter--use_tls_server_config"></a>`use_tls_server_config`
 
 Data type: `Boolean`
-
-
 
 Default value: `false`
 
@@ -14520,15 +13994,11 @@ Default value: `false`
 
 Data type: `Optional[Stdlib::Absolutepath]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--wireguard_exporter--tls_key_file"></a>`tls_key_file`
 
 Data type: `Optional[Stdlib::Absolutepath]`
-
-
 
 Default value: `undef`
 
@@ -14536,15 +14006,11 @@ Default value: `undef`
 
 Data type: `Optional[Stdlib::Absolutepath]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--wireguard_exporter--tls_client_auth_type"></a>`tls_client_auth_type`
 
 Data type: `String[1]`
-
-
 
 Default value: `'RequireAndVerifyClientCert'`
 
@@ -14552,15 +14018,11 @@ Default value: `'RequireAndVerifyClientCert'`
 
 Data type: `Stdlib::Absolutepath`
 
-
-
 Default value: `'/etc/wireguard_exporter_web-config.yml'`
 
 ##### <a name="-prometheus--wireguard_exporter--tls_min_version"></a>`tls_min_version`
 
 Data type: `String[1]`
-
-
 
 Default value: `'TLS12'`
 
@@ -14568,15 +14030,11 @@ Default value: `'TLS12'`
 
 Data type: `String[1]`
 
-
-
 Default value: `'TLS13'`
 
 ##### <a name="-prometheus--wireguard_exporter--tls_cipher_suites"></a>`tls_cipher_suites`
 
 Data type: `Optional[Array[String[1]]]`
-
-
 
 Default value: `undef`
 
@@ -14584,15 +14042,11 @@ Default value: `undef`
 
 Data type: `Optional[Array[String[1]]]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--wireguard_exporter--tls_prefer_server_cipher_suites"></a>`tls_prefer_server_cipher_suites`
 
 Data type: `Boolean`
-
-
 
 Default value: `true`
 
@@ -14600,15 +14054,11 @@ Default value: `true`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--wireguard_exporter--http2"></a>`http2`
 
 Data type: `Boolean`
-
-
 
 Default value: `true`
 
@@ -14616,15 +14066,11 @@ Default value: `true`
 
 Data type: `Optional[Hash]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--wireguard_exporter--basic_auth_users"></a>`basic_auth_users`
 
 Data type: `Optional[Hash]`
-
-
 
 Default value: `undef`
 
@@ -14663,15 +14109,11 @@ Default value: `"${prometheus::config_dir}/rules"`
 
 Data type: `String[1]`
 
-
-
 Default value: `$prometheus::version`
 
 ##### <a name="-prometheus--alerts--user"></a>`user`
 
 Data type: `String[1]`
-
-
 
 Default value: `$prometheus::user`
 
@@ -14679,15 +14121,11 @@ Default value: `$prometheus::user`
 
 Data type: `String[1]`
 
-
-
 Default value: `$prometheus::group`
 
 ##### <a name="-prometheus--alerts--bin_dir"></a>`bin_dir`
 
 Data type: `String[1]`
-
-
 
 Default value: `$prometheus::bin_dir`
 
@@ -14894,7 +14332,7 @@ Data type: `Stdlib::Absolutepath`
 
 Path to the binary in the downloaded archive.
 
-Default value: `"/opt/${name}-${version}.${os}-${arch}/${name}"`
+Default value: `"/var/tmp/${name}-${version}.${os}-${arch}/${name}"`
 
 ##### <a name="-prometheus--daemon--init_style"></a>`init_style`
 
@@ -14910,7 +14348,7 @@ Default value: `$prometheus::init_style`
 
 Data type: `Optional[String[1]]`
 
-Optional proxy server, with port number if needed. ie: https://example.com:8080
+Optional proxy server, with port number if needed. ie: <https://example.com:8080>
 
 Default value: `undef`
 
@@ -14926,13 +14364,9 @@ Default value: `undef`
 
 Data type: `String[1]`
 
-
-
 ##### <a name="-prometheus--daemon--manage_bin_link"></a>`manage_bin_link`
 
 Data type: `Boolean`
-
-
 
 Default value: `true`
 
@@ -14940,15 +14374,11 @@ Default value: `true`
 
 Data type: `Boolean`
 
-
-
 Default value: `true`
 
 ##### <a name="-prometheus--daemon--options"></a>`options`
 
 Data type: `String`
-
-
 
 Default value: `''`
 
@@ -14956,15 +14386,11 @@ Default value: `''`
 
 Data type: `Hash[String[1], Scalar]`
 
-
-
 Default value: `{}`
 
 ##### <a name="-prometheus--daemon--env_file_path"></a>`env_file_path`
 
 Data type: `Stdlib::Absolutepath`
-
-
 
 Default value: `$prometheus::env_file_path`
 
@@ -14972,15 +14398,11 @@ Default value: `$prometheus::env_file_path`
 
 Data type: `Boolean`
 
-
-
 Default value: `false`
 
 ##### <a name="-prometheus--daemon--scrape_host"></a>`scrape_host`
 
 Data type: `Stdlib::Host`
-
-
 
 Default value: `$facts['networking']['fqdn']`
 
@@ -14988,15 +14410,11 @@ Default value: `$facts['networking']['fqdn']`
 
 Data type: `Optional[Stdlib::Port]`
 
-
-
 Default value: `undef`
 
 ##### <a name="-prometheus--daemon--scrape_job_name"></a>`scrape_job_name`
 
 Data type: `String[1]`
-
-
 
 Default value: `$name`
 
@@ -15004,15 +14422,11 @@ Default value: `$name`
 
 Data type: `Hash`
 
-
-
 Default value: `{ 'alias' => $scrape_host }`
 
 ##### <a name="-prometheus--daemon--usershell"></a>`usershell`
 
 Data type: `Stdlib::Absolutepath`
-
-
 
 Default value: `$prometheus::usershell`
 
@@ -15100,7 +14514,7 @@ Alias of `Variant[Stdlib::Filesource, Stdlib::HTTPUrl, Stdlib::HTTPSUrl, Prometh
 webconfig for the exporter
 
 * **See also**
-  * https://github.com/prometheus/exporter-toolkit/blob/v0.10.0/docs/web-configuration.md
+  * <https://github.com/prometheus/exporter-toolkit/blob/v0.10.0/docs/web-configuration.md>
 
 Alias of
 
@@ -15117,7 +14531,7 @@ Struct[{
 http_server_config of a exporter webconfig
 
 * **See also**
-  * https://github.com/prometheus/exporter-toolkit/blob/v0.10.0/docs/web-configuration.md
+  * <https://github.com/prometheus/exporter-toolkit/blob/v0.10.0/docs/web-configuration.md>
 
 Alias of
 
@@ -15139,7 +14553,7 @@ Struct[{
 tls_server_config of a exporter webconfig
 
 * **See also**
-  * https://github.com/prometheus/exporter-toolkit/blob/v0.10.0/docs/web-configuration.md
+  * <https://github.com/prometheus/exporter-toolkit/blob/v0.10.0/docs/web-configuration.md>
 
 Alias of
 
@@ -15157,4 +14571,3 @@ Struct[{
     Optional[curve_preferences] => Array[String[1],1],
 }]
 ```
-

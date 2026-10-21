@@ -76,8 +76,8 @@ define prometheus::daemon (
   Hash[String[1], Scalar] $env_vars                          = {},
   Stdlib::Absolutepath $env_file_path                        = $prometheus::env_file_path,
   Optional[String[1]] $extract_command                       = $prometheus::extract_command,
-  Stdlib::Absolutepath $extract_path                         = '/opt',
-  Stdlib::Absolutepath $archive_bin_path                     = "/opt/${name}-${version}.${os}-${arch}/${name}",
+  Stdlib::Absolutepath $extract_path                         = '/var/tmp',
+  Stdlib::Absolutepath $archive_bin_path                     = "/var/tmp/${name}-${version}.${os}-${arch}/${name}",
   Boolean $export_scrape_job                                 = false,
   Stdlib::Host $scrape_host                                  = $facts['networking']['fqdn'],
   Optional[Stdlib::Port] $scrape_port                        = undef,
@@ -90,17 +90,17 @@ define prometheus::daemon (
   case $install_method {
     'url': {
       if $download_extension == '' {
-        file { "/opt/${name}-${version}.${os}-${arch}":
+        file { "/var/tmp/${name}-${version}.${os}-${arch}":
           ensure => directory,
           owner  => 'root',
           group  => 0, # 0 instead of root because OS X uses "wheel".
           mode   => '0755',
         }
-        -> archive { "/opt/${name}-${version}.${os}-${arch}/${name}":
+        -> archive { "/var/tmp/${name}-${version}.${os}-${arch}/${name}":
           ensure          => present,
           source          => $real_download_url,
           checksum_verify => false,
-          before          => File["/opt/${name}-${version}.${os}-${arch}/${name}"],
+          before          => File["/var/tmp/${name}-${version}.${os}-${arch}/${name}"],
           proxy_server    => $proxy_server,
           proxy_type      => $proxy_type,
         }
@@ -247,6 +247,10 @@ define prometheus::daemon (
     # those files to be present, even if empty, so it's critical that
     # the file not get removed
     $env_file_sub = "${env_file_path}/${name}"
+    # needed for only one broken dir; but can't handle duplication
+    # file { $env_file_path:
+    # ensure => directory,
+    # }
     file { $env_file_sub:
       mode    => '0644',
       owner   => 'root',
